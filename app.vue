@@ -1,8 +1,8 @@
 <template>
   <div>
     <Head>
-      <Title>Nuxt3 Template</Title>
-      <Meta name="description" content="Nuxt3 Template" />
+      <Title>SungWoo's Gallery</Title>
+      <Meta name="description" content="SungWoo's Gallery" />
     </Head>
     <NuxtLayout name="default">
       <NuxtPage />

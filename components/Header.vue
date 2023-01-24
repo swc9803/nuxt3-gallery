@@ -16,3 +16,10 @@
     </nav>
   </header>
 </template>
+
+<style lang="scss" scoped>
+header {
+    position: fixed;
+    opacity: 0;
+}
+</style>
