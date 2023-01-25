@@ -9,14 +9,13 @@
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
-    padding: 2.5% 2.5%;
     width: 100%;
     max-width: 1920px;
-    height: 100vh;
+    height: 100vh; // 이미지 넣고 지우기
     .box {
         width: 100%;
         height: 100%;
-        background: red;
+        background: rgb(76, 76, 76);
         border-radius: 2em;
     }
 }
