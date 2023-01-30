@@ -1,18 +1,9 @@
 <template>
   <header>
     <nav>
-      <ul>
-        <li>
-          <NuxtLink to="/">
-            Home Page
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="about">
-            About Page
-          </NuxtLink>
-        </li>
-      </ul>
+      <div>home</div>
+      <div>github</div>
+      <div>portfolio</div>
       <div @click="toggleDarkMode">
         {{ onDarkMode ? 'dark-mode' : 'light-mode' }} <!-- 해, 달 -->
       </div>
@@ -62,15 +53,6 @@ header {
     nav {
         display: flex;
         justify-content: space-between;
-        ul {
-            display: flex;
-            list-style: none;
-            li {
-                a {
-                    text-decoration-line: none;
-                }
-            }
-        }
     }
 }
 </style>

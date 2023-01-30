@@ -19,6 +19,7 @@ const changeTheme = () => {
 onMounted(() => {
   const darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
   onDarkMode.value = darkQuery.matches
+  // local storage
 })
 
 </script>
@@ -27,5 +28,8 @@ onMounted(() => {
 .dark-mode {
   background: black;
   color: white;
+}
+.layout {
+    transition: 0.5s;
 }
 </style>

@@ -1,11 +1,12 @@
 <template>
   <div id="home">
-    <!-- <p>다크모드</p> -->
+    <!-- --100vh  -->
     <Main />
     <div class="card-flex">
       <Card />
       <Map />
     </div>
+    <div class="blank" />
   </div>
 </template>
 
@@ -14,6 +15,9 @@
 
 <style lang="scss" scoped>
 #home {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
     padding: 0 60px;
     @media screen and (max-width: 1024px) {
         & {
@@ -55,5 +59,9 @@
             }
         }
     }
+}
+.blank {
+    width: 0;
+    height: 300vh;
 }
 </style>
