@@ -11,23 +11,26 @@
 </template>
 
 <script setup>
-const onDarkMode = ref(true)
+const onDarkMode = ref(false)
 const changeTheme = () => {
   onDarkMode.value = !onDarkMode.value
+  localStorage.setItem('onDarkMode', onDarkMode.value)
 }
 
 onMounted(() => {
-  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
-  onDarkMode.value = darkQuery.matches
   // local storage
+  const savedDarkMode = localStorage.getItem('onDarkMode')
+  if (savedDarkMode) {
+    onDarkMode.value = savedDarkMode === 'true'
+  }
 })
 
 </script>
 
 <style lang="scss" scoped>
 .dark-mode {
-  background: black;
-  color: white;
+    background: black;
+    color: white;
 }
 .layout {
     transition: 0.5s;

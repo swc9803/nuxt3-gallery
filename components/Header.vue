@@ -19,9 +19,15 @@ const onDarkMode = ref(true)
 const toggleDarkMode = () => {
   emit('change-theme')
   onDarkMode.value = !onDarkMode.value
-  // rotate+scale-, rotate-scale+
+  // rotate+scale-, rotate-scale+ 해, 달 변경
 }
 
+onMounted(() => {
+  const savedDarkMode = localStorage.getItem('onDarkMode')
+  if (savedDarkMode) {
+    onDarkMode.value = savedDarkMode === 'true'
+  }
+})
 </script>
 
 <style lang="scss" scoped>
