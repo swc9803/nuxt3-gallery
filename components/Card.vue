@@ -1,7 +1,9 @@
 <template>
   <div ref="contentsRef" class="card">
     <div class="box">
-      card
+      <nuxt-link to="/about">
+        card
+      </nuxt-link>
     </div>
     <div class="box">
       card

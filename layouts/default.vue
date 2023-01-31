@@ -3,7 +3,7 @@
     class="layout"
     :class="{ 'dark-mode': onDarkMode }"
   >
-    <Header @change-theme="changeTheme" />
+    <Header :onDarkMode="onDarkMode" @change-theme="changeTheme" />
     <main class="page">
       <slot />
     </main>
@@ -18,7 +18,6 @@ const changeTheme = () => {
 }
 
 onMounted(() => {
-  // local storage
   const savedDarkMode = localStorage.getItem('onDarkMode')
   if (savedDarkMode) {
     onDarkMode.value = savedDarkMode === 'true'

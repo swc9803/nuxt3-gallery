@@ -19,6 +19,13 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
-    'vue/multi-word-component-names': 0
+    'vue/multi-word-component-names': 0,
+    'vue/attribute-hyphenation': [
+      'error',
+      'never',
+      {
+        ignore: ['onDarkMode']
+      }
+    ]
   }
 }

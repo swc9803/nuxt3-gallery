@@ -5,29 +5,22 @@
       <div>github</div>
       <div>portfolio</div>
       <div @click="toggleDarkMode">
-        {{ onDarkMode ? 'dark-mode' : 'light-mode' }} <!-- 해, 달 -->
+        {{ props.onDarkMode ? 'dark-mode' : 'light-mode' }} <!--해, 달 -->
       </div>
     </nav>
   </header>
 </template>
 
 <script setup>
-
 const emit = defineEmits(['change-theme'])
-
-const onDarkMode = ref(true)
+const props = defineProps({
+  onDarkMode: Boolean
+})
 const toggleDarkMode = () => {
   emit('change-theme')
-  onDarkMode.value = !onDarkMode.value
   // rotate+scale-, rotate-scale+ 해, 달 변경
 }
 
-onMounted(() => {
-  const savedDarkMode = localStorage.getItem('onDarkMode')
-  if (savedDarkMode) {
-    onDarkMode.value = savedDarkMode === 'true'
-  }
-})
 </script>
 
 <style lang="scss" scoped>

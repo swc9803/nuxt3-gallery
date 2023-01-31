@@ -6,7 +6,6 @@
       <Card />
       <Map />
     </div>
-    <div class="blank" />
   </div>
 </template>
 
@@ -59,9 +58,5 @@
             }
         }
     }
-}
-.blank {
-    width: 0;
-    height: 300vh;
 }
 </style>
