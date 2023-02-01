@@ -1,7 +1,7 @@
 <template>
-  <div ref="contentsRef" class="map">
+  <div ref="contentsRef" class="mapWrapper">
     <!-- 이미지 포커스 시 스케일, alpha++, 글자 보이게 -->
-    <div v-for="map in maps" :key="map.id">
+    <div v-for="map in maps" :key="map.id" class="map">
       map-card
     </div>
   </div>
@@ -9,24 +9,12 @@
 
 <script setup>
 const maps = [
-  {
-    src: ''
-  },
-  {
-    src: ''
-  },
-  {
-    src: ''
-  },
-  {
-    src: ''
-  },
-  {
-    src: ''
-  },
-  {
-    src: ''
-  }
+  { src: '' },
+  { src: '' },
+  { src: '' },
+  { src: '' },
+  { src: '' },
+  { src: '' }
 ]
 
 const contentsRef = ref()
@@ -53,15 +41,21 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss" scoped>
-.map {
+.mapWrapper {
     position: sticky;
     top: 100px;
-    width: 20%;
-    height: 100%;
-    background: blue;
     display: flex;
     flex-direction: column;
+    width: 20%;
+    height: 100%;
     transition: transform 1s;
     gap: 12px;
+    opacity: 0.5;
+    .map {
+        width: 100%;
+        height: 50px;
+        object-fit: cover;
+        background: blue;
+    }
 }
 </style>
