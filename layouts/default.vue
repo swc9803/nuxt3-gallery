@@ -3,7 +3,7 @@
     class="layout"
     :class="{ 'dark-mode': onDarkMode }"
   >
-    <Header :onDarkMode="onDarkMode" @change-theme="changeTheme" />
+    <Header :onDarkMode="onDarkMode" @change-theme="store.changeTheme" />
     <main class="page">
       <slot />
     </main>
@@ -11,27 +11,28 @@
 </template>
 
 <script setup>
-const onDarkMode = ref(false)
-const changeTheme = () => {
-  onDarkMode.value = !onDarkMode.value
-  localStorage.setItem('onDarkMode', onDarkMode.value)
-}
+import { useDarkModeStore } from '@/stores/darkmode'
+
+const store = useDarkModeStore()
+const onDarkMode = computed(() => store.onDarkMode)
 
 onMounted(() => {
-  const savedDarkMode = localStorage.getItem('onDarkMode')
-  if (savedDarkMode) {
-    onDarkMode.value = savedDarkMode === 'true'
+  const storedDarkMode = localStorage.getItem('onDarkMode')
+  if (storedDarkMode !== null) {
+    store.onDarkMode = storedDarkMode === 'true'
+  } else {
+    localStorage.setItem('onDarkMode', store.onDarkMode)
   }
 })
 
 </script>
 
 <style lang="scss" scoped>
-.dark-mode {
-    background: black;
-    color: white;
-}
 .layout {
     transition: 0.5s;
+    &.dark-mode {
+        background: black;
+        color: white;
+    }
 }
 </style>
